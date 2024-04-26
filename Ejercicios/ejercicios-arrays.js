@@ -83,4 +83,81 @@ function displayUsers(arr){
       return res;
 }
     console.log(displayUsers(users));
+
+/*
+*5 Create a function that takes two parameters (number, length) and returns an array of length containing multiples of the number.
+
+
+Examples:
+- `arrayMultiplos(2, 10)` should return `[2, 4, 6, 8, 10, 12, 14, 16, 18, 20]`.
+- `arrayMultiplos(17, 6)` should return `[17, 34, 51, 68, 85, 102]`
+*/
+
+function multiplos(n, l) {
+var multiplesArray = [];
+for (var i = 1; i <= l; i++) {
+multiplesArray.push(n * i);
+}
+return multiplesArray;
+}
+console.log(multiplos(2, 10));
+console.log(multiplos(17, 6)); 
+
+
+/*
+* 6 Write a function to determine if an array is positively dominant.
+An array is positively dominant when the majority of its elements are positive.
+Example:
+- `positiveDom([-1, -3, -5, 4, 6767])` should return `false`.
+*/
+
+function positiveDom(arr) {
+  var posNum = 0;
+  var negNum = 0;
+  
+  for (var i = 0; i < arr.length; i++) {
+    if (arr[i] > 0) {
+      posNum++;
+    } else if (arr[i] < 0) {
+      negNum++;
+    }
+  }
+  
+  return posNum > negNum;
+}
+
+console.log(positiveDom([-1, -3, -5, 4, 6767])); 
+
+
+
+
+/*
+ *  7 Given an array, return a shorter array following these steps:
+- Split the array into two equal parts*. If unequal, remove the middle element to obtain two equal arrays.
+- Sum each number of the first part with the inverse numbers of the second part.
+- Divide each number of the resulting array by 2.
+ 
+
+Example:
+- For the array `[1,2,3,5,22,6]`, the result should be `[3.5, 12, 4]`.
+ */
+
+
+function cortar(arr) {
+  var largo = arr.length;
+  var mitad = Math.floor(largo/ 2);
+  
+  var primera = arr.slice(0, mitad);
+  var segunda = arr.slice(mitad);
+  
+  var res = [];
+  for (var i = 0; i < mitad; i++) {
+    res.push((primera[i] + (1 / segunda[i])) / 2);
+  }
+  
+  return res;
+}
+
+console.log(cortar([1, 2, 3, 5, 22, 6])); 
+
    
